@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Login Form</title>
+    <style>
+        html,body{
+
+            background-color:grey;
+            display: flex;
+            justify-content: center;
+
+            color:black;
+        }
+        input{
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+
+        }
+        button{
+            width:80px;
+            height: 40px;
+            position: relative;
+            left: 50px;
+            border-radius: 5px;
+            margin-left: 70px;
+        }
+        h2{
+            margin-left: 90px;
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <form method="POST" action="{% url 'adminlogin' %}">
+        {% csrf_token %}
+        <h2> Admin Login Form</h2>
+        <label for="Name">User Name</label><br>
+        <input type="text" placeholder="User Name"  name="Name"> <br><br>
+        <label for="Password">Password</label><br>
+        <input type="password" placeholder="Enter Password" name="Password"><br><br>
+        <button type="submit">Login</button><br><br>
+        <!-- <button><a href="{% url 'adminsignup' %}">New User</a></button> -->
+
+    </form>
+</body>
+</html>

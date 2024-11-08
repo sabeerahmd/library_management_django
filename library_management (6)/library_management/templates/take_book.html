@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Management System</title>
+
+    <style>
+    table{width:100%;}
+        body{
+        background-color:lightblue;
+        }
+        table, th, td, tr {
+            border: 1px solid black;
+
+        }
+        td,th {
+            padding:20px;
+            text-align:center;
+        }
+        button{
+            margin-bottom:20px;
+            background-color:blue;
+            padding:10px;
+            border-radius:3px;
+        }
+        a{
+            color:white;
+            text-decoration:none;
+        }
+        .edit{
+            color:white;
+        }
+        .edit:hover {
+            color:red;
+            text-decoration: underline;
+
+        }
+        .btn2{
+            margin-top:20px;
+            width:80px;
+        }
+        .lg{
+            position: absolute;
+            right: 20px;
+            top:10px;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h2>Book Details-User Page</h2>
+<form action = "{% url 'takebook' %}" method="post">
+    {% csrf_token %}
+    <label for="search">BookName</label>
+    <input type="text" name="search">
+<!--    <button type="submit">Search</button>-->
+    <label for="search">BookCode</label>
+    <input type="number" name="searchcode">
+    <button type="submit">Search</button>
+</form>
+
+
+<table>
+    <tr>
+        <th>Book Name</th>
+        <th>Book Code</th>
+        <th>Author Name</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Available Books</th>
+        <th>Amount</th>
+        <th>Created date</th>
+        <th>Updated date</th>
+        <th>Img</th>
+        <th>Take</th>
+        <th>Retain</th>
+    </tr>
+    {% for i in obj %}
+    <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.book_code}}</td>
+        <td>{{i.author_name}}</td>
+        <td>{{i.date}}</td>
+        <td>{{i.status}}</td>
+        <td>{{i.available_books}}</td>
+        <td>{{i.amount}}</td>
+        <td>{{i.created_date}}</td>
+        <td>{{i.updated_date}}</td>
+        <td><img src="{{i.book_img.url}}" style="width:100px;height:100px;"></td>
+        <td><button class="btn2"><a class="edit" href="{% url 'takebook' i.id %}">Take </a> </button></td>
+        <td><button class="btn2"><a class="edit" href="{% url 'retainbook' i.id %}">Retain </a> </button></td>
+        
+      
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
+
+

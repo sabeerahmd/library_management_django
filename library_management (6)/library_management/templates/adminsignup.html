@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <style>
+        html,body{
+            background-color:grey;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+            color:black;
+        }
+        input{
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+
+        }
+        button{
+            width:80px;
+            height: 40px;
+            position: relative;
+            left: 50px;
+            border-radius: 5px;
+            margin-left: 20px;
+        }
+    h2{
+    text-align:center;
+    }
+
+    </style>
+</head>
+<body>
+<!--<script>-->
+<!--    function newfunction(){-->
+<!--    var fname=document.userdata.firstname.value;-->
+<!--    var lname=document.userdata.Lastname.value;-->
+<!--    var email=document.userdata.mail.value;-->
+<!--    var password=document.userdata.password.value;-->
+<!--    var num=document.userdata.number.value;-->
+<!--    alert("Data Updated Successfully")-->
+<!--    }-->
+<!--</script>-->
+
+<form method="POST" action="{% url 'adminsignup' %}">
+        {% csrf_token %}
+        <label for="Fname">User Name</label><br>
+        <div style="margin-top: 10px;">
+            <input type = "text" name = "username">
+        </div> <br><br>
+        <!-- <label for="lname">Last Name</label><br>
+        <input type="text" placeholder="Enter Your Last Name" required name="Lastname"><br><br> -->
+        <label for="Email">Email Id</label><br>
+        <div style="margin-top: 10px;"> <input type = "email" name = "email"> </div><br><br>
+        <label for="Password">Password</label><br>
+        <div style="margin-top: 10px;">  <input type = "password" name = "password1"></div><br><br>
+        <label for="Password">Password2</label><br>
+        <div style="margin-top: 10px;"> <input type = "password" name = "password2"></div><br><br>
+        <!-- <label for="number">Mobile Number</label><br>
+        <input type="number" placeholder="Enter Your Mobile Number" required name="number"><br><br> -->
+        <button type="submit">Submit</button>
+
+<!--        <button type="submit">New User</button>-->
+        <button type="reset"> Reset</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <style>
+        html,body{
+            background-color:lightblue;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+            color:black;
+        }
+        input{
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+
+        }
+        button{
+            width:80px;
+            height: 40px;
+            position: relative;
+            left: 50px;
+            border-radius: 5px;
+            margin-left: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+<!--<script>-->
+<!--    function functionone(){-->
+<!--    var Bookname=document.userdata.firstname.value;-->
+<!--    var bcode=document.userdata.Code.value;-->
+<!--    var author=document.userdata.Aname.value;-->
+<!--    var date=document.userdata.date.value;-->
+<!--    var status=document.userdata.status.value;-->
+<!--    var amt=document.userdata.amount.value;-->
+<!--    var num=document.userdata.name.value;-->
+
+<!--    alert("Data Updated Successfully")-->
+<!--    }-->
+<!--</script>-->
+    <form method="post" action="{% url 'addbook' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="Bookname">Book Name</label><br>
+        <input type="text" placeholder="Enter Book Name" required name="Name"> <br><br>
+        <label for="bcode">Code</label><br>
+        <input type="number" placeholder="Enter Book Code" required name="Code"><br><br>
+        <label for="Author">Author Name</label><br>
+        <input type="text" placeholder="Enter Author Code" required name="Author"><br><br>
+        <label for="Date">Date</label><br>
+        <input type="Date" placeholder="Date" required name="Date"><br><br>
+        <label for="status">Status</label><br>
+        <input type="text" placeholder="Status of the Book" required name="Status"> <br><br>
+        <label for="available_books">Available Books</label><br>
+        <input type="number" placeholder="Available Books" required name="available_books"> <br><br>
+        <label for="amt">Amount</label><br>
+        <input type="number" placeholder="Enter Book Amount" required name="Amount"><br><br>
+        
+        <label for="Image">AddBook Image</label><br>
+        <input type="file" placeholder="" required name="updatebook"><br><br>
+
+
+        <button type="submit">Submit</button>
+        <button type="reset"> Reset</button>
+    </form>
+</body>
+</html>
+</body>
+</html>
